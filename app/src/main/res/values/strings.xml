@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Hospital</string>
+    <string name="title_activity_bill">BillActivity</string>
 </resources>
