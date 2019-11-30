@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">Hospital</string>
     <string name="title_activity_bill">BillActivity</string>
+    <string-array name="room_type">
+        <item>General</item>
+        <item>ICU</item>
+    </string-array>
 </resources>

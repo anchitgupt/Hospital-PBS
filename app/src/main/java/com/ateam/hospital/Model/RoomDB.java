@@ -10,6 +10,7 @@ import androidx.annotation.Nullable;
 
 import com.ateam.hospital.Controller.Doctor;
 import com.ateam.hospital.Controller.Room;
+import com.ateam.hospital.Controller.Treatment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -101,4 +102,21 @@ public class RoomDB extends SQLiteOpenHelper {
     }
 
     //TODO get by particular id
+
+    public Room getData(int id) {
+
+        String selectQuery = "SELECT  * FROM " + TABLE_DATA + "WHERE room_id =" + id;
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+        Room acc = new Room();
+        if (cursor.moveToFirst()) {
+            do {
+                acc.setRoom_id(Integer.parseInt(cursor.getString(0)));
+                acc.setWard(cursor.getString(1));
+                acc.setBedno(cursor.getString(2));
+                acc.setStatus(cursor.getInt(3)>0);
+            } while (cursor.moveToNext());
+        }
+        return acc;
+    }
 }

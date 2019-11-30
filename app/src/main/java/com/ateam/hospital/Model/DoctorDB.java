@@ -19,6 +19,7 @@ import java.util.List;
  * Under the MIT License
  */
 public class DoctorDB extends SQLiteOpenHelper {
+
     private static final int    DATABASE_VERSION = 1;
     private static final String DATABASE_NAME = "db";
     private static final String TABLE_DATA = "doctor";
@@ -56,9 +57,6 @@ public class DoctorDB extends SQLiteOpenHelper {
 
     }
 
-
-
-
     public List<Doctor> getAllData() {
 
         List<Doctor> AccList = new ArrayList<Doctor>();
@@ -87,9 +85,10 @@ public class DoctorDB extends SQLiteOpenHelper {
         return AccList;
     }
 
+
+
     public long insertData (Doctor doctor){
         SQLiteDatabase db = this.getWritableDatabase();
-
         ContentValues values = new ContentValues();
 
         values.put(KEY_NAME, doctor.getName());
@@ -104,6 +103,7 @@ public class DoctorDB extends SQLiteOpenHelper {
         return k;
     }
 
+
     public boolean deleteData (int id)
     {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -111,6 +111,25 @@ public class DoctorDB extends SQLiteOpenHelper {
     }
 
     //TODO get by particular id
+    public  Doctor getData(int id) {
+
+        String selectQuery = "SELECT  * FROM " + TABLE_DATA + "WHERE doctor_id=" + id;
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+        Doctor acc = new Doctor();
+        if (cursor.moveToFirst()) {
+            do {
+                acc.setDoctor_id(Integer.parseInt(cursor.getString(0)));
+                acc.setName(cursor.getString(1));
+                acc.setAge(cursor.getInt(2));
+                acc.setSpecialization(cursor.getString(3));
+                acc.setGender(cursor.getInt(4) > 0);
+                acc.setDepartment(cursor.getString(5));
+                acc.setCharges(cursor.getDouble(6));
+            } while (cursor.moveToNext());
+        }
+        return acc;
+    }
 
 
 }

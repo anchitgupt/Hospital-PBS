@@ -10,6 +10,7 @@ import androidx.annotation.Nullable;
 
 import com.ateam.hospital.Controller.Doctor;
 import com.ateam.hospital.Controller.PatientDetail;
+import com.ateam.hospital.Controller.Room;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,6 +32,7 @@ public class PatientDB extends SQLiteOpenHelper {
     private static final String KEY_ADDRESS = "address";
     private static final String KEY_GENDER = "gender";
     private static final String KEY_PHONE = "phone";
+    private static final String KEY_BLOOD = "blood";
 
     public PatientDB(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -46,7 +48,8 @@ public class PatientDB extends SQLiteOpenHelper {
                         + KEY_AGE     + "INTEGER,"
                         + KEY_ADDRESS  +" TEXT,"
                         + KEY_GENDER   +" BOOLEAN,"
-                        + KEY_PHONE    +" TEXT"
+                        + KEY_PHONE    +" TEXT,"
+                        + KEY_BLOOD    +" TEXT"
                         +")";
         db.execSQL(CREATE_PATIENT_TABLE);
     }
@@ -78,6 +81,7 @@ public class PatientDB extends SQLiteOpenHelper {
                 acc.setAddress(cursor.getString(3));
                 acc.setGender(cursor.getInt(4) > 0);
                 acc.setPhoneno(cursor.getString(5));
+                acc.setBlood(cursor.getString(6));
 
                 // Adding contact to list
                 AccList.add(acc);
@@ -96,6 +100,7 @@ public class PatientDB extends SQLiteOpenHelper {
         values.put(KEY_ADDRESS, patient.getAddress());
         values.put(KEY_GENDER, patient.getGender());
         values.put(KEY_PHONE, patient.getPhoneno());
+        values.put(KEY_BLOOD, patient.getBlood());
 
         long k = db.insert(TABLE_DATA, null, values);
 
@@ -109,6 +114,25 @@ public class PatientDB extends SQLiteOpenHelper {
     }
 
     //TODO get by particular id
+    public PatientDetail getData(int id) {
+
+        String selectQuery = "SELECT  * FROM " + TABLE_DATA + "WHERE patient_id=" + id;
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+        PatientDetail acc = new PatientDetail();
+        if (cursor.moveToFirst()) {
+            do {
+                acc.setPatient_id(Integer.parseInt(cursor.getString(0)));
+                acc.setName(cursor.getString(1));
+                acc.setAge(cursor.getInt(2));
+                acc.setAddress(cursor.getString(3));
+                acc.setGender(cursor.getInt(4) > 0);
+                acc.setPhoneno(cursor.getString(5));
+                acc.setBlood(cursor.getString(6));
+            } while (cursor.moveToNext());
+        }
+        return acc;
+    }
 
 
 }

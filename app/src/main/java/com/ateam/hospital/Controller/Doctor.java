@@ -1,5 +1,9 @@
 package com.ateam.hospital.Controller;
 
+import android.content.Context;
+
+import com.ateam.hospital.Model.DoctorDB;
+
 /**
  * Project Hospital
  * Created by Anchit Gupta on 2019-11-25.
@@ -64,5 +68,11 @@ public class Doctor extends UserBasic {
 
     public void setCharges(double charges) {
         this.charges = charges;
+    }
+
+    public long insertInDB(Context context, Doctor doctor){
+        DoctorDB doctorDB = new DoctorDB(context);
+        long l = doctorDB.insertData(doctor);
+        return l;
     }
 }

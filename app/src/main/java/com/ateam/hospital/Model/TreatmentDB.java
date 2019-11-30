@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
-import com.ateam.hospital.Controller.Doctor;
+import com.ateam.hospital.Controller.Treatment;
 import com.ateam.hospital.Controller.Treatment;
 
 import java.util.ArrayList;
@@ -103,4 +103,21 @@ public class TreatmentDB extends SQLiteOpenHelper {
     }
 
     //TODO get by particular id
+
+    public Treatment getData(int id) {
+
+        String selectQuery = "SELECT  * FROM " + TABLE_DATA + "WHERE treat_id=" + id;
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+        Treatment acc = new Treatment();
+        if (cursor.moveToFirst()) {
+            do {
+                acc.setTreatment_id(Integer.parseInt(cursor.getString(0)));
+                acc.setTreatmentname(cursor.getString(1));
+                acc.setCharges(cursor.getInt(2));
+                acc.setMedicine_charges(cursor.getDouble(3));
+            } while (cursor.moveToNext());
+        }
+        return acc;
+    }
 }

@@ -6,7 +6,6 @@ import android.os.Bundle;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -16,7 +15,6 @@ import android.view.View;
 
 import com.ateam.hospital.R;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 public class BillActivity extends AppCompatActivity {
 
@@ -35,6 +33,7 @@ public class BillActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
                 Intent intent  = new Intent(BillActivity.this, BillGenreator.class);
                 startActivity(intent);
+
 
             }
         });
@@ -56,7 +55,16 @@ public class BillActivity extends AppCompatActivity {
             startActivity(new Intent(BillActivity.this, LoginActivity.class));
             finish();
         }
-        return true;
+        if (id == R.id.add_doctor){
+            Intent intent = new Intent(this, AddDoctor.class);
+            startActivity(intent);
+        }
+        if (id == R.id.add_room) {
+            Intent intent = new Intent(this, AddRoom.class);
+            startActivity(intent);
+        }
+
+            return true;
     }
 
 }

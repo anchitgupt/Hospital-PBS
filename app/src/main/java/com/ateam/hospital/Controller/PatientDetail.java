@@ -10,6 +10,7 @@ public class PatientDetail extends UserBasic {
     int patient_id;
     String address;
     String phoneno;
+    String blood;
 
     public int getPatient_id() {
         return patient_id;
@@ -18,17 +19,23 @@ public class PatientDetail extends UserBasic {
     public PatientDetail() {
     }
 
+    public PatientDetail(int patient_id, String address, String phoneno, String blood) {
+        this.patient_id = patient_id;
+        this.address = address;
+        this.phoneno = phoneno;
+        this.blood = blood;
+    }
+
     public void setPatient_id(int patient_id) {
         this.patient_id = patient_id;
     }
 
-    public PatientDetail(int patient_id, String name, boolean gender, int age, String address, String phoneno) {
-        this.patient_id = patient_id;
-        this.name    = name;
-        this.gender  = gender;
-        this.age     = age;
-        this.address = address;
-        this.phoneno = phoneno;
+    public String getBlood() {
+        return blood;
+    }
+
+    public void setBlood(String blood) {
+        this.blood = blood;
     }
 
     public String getAddress() {

@@ -5,6 +5,8 @@ package com.ateam.hospital.Controller;
  * Created by Anchit Gupta on 2019-11-25.
  * Under the MIT License
  */
+
+
 public class Prescription {
 
     int       pres_id;
@@ -22,8 +24,21 @@ public class Prescription {
         this.treatment = treatment;
     }
 
+    public Prescription() {
+
+    }
+
+
     public int getPres_id() {
         return pres_id;
+    }
+
+    public int getDoctorIDFromPres(){
+        return doctor.getDoctor_id();
+    }
+
+    public int getTreatmentIDFromPres(){
+        return treatment.getTreatment_id();
     }
 
     public void setPres_id(int pres_id) {

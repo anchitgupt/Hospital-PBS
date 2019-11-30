@@ -1,0 +1,151 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="18dp"
+    tools:context=".View.AddPatient">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/opensans_regular"
+        android:text="Add Patient"
+        android:textColor="#3FADA8"
+        android:textSize="40sp" />
+
+
+
+    <EditText
+        android:id="@+id/patient_name"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="15dp"
+        android:singleLine="true"
+        android:background="@drawable/theme_button_background"
+        android:elevation="3dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="2dp"
+        android:hint="Name"
+        android:paddingStart="30dp"
+        android:textSize="15sp" />
+
+
+    <EditText
+        android:id="@+id/patient_age"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="15dp"
+        android:singleLine="true"
+        android:background="@drawable/theme_button_background"
+        android:elevation="3dp"
+        android:hint="Age"
+        android:inputType="numberSigned"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="2dp"
+        android:paddingStart="30dp"
+        android:textSize="15sp" />
+
+
+
+    <!--    Radio Button for gender-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal">
+
+        <RadioGroup
+            android:id="@+id/patient_radiogroup"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/patient_male"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="0.5"
+                android:checked="true"
+                android:background="@drawable/theme_button_background"
+                android:buttonTint="#3FADA8"
+                android:fontFamily="@font/opensans_regular"
+                android:paddingStart="10dp"
+                android:text="Male" />
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/patient_female"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="0.5"
+                android:background="@drawable/theme_button_background"
+                android:buttonTint="#3FADA8"
+                android:fontFamily="@font/opensans_regular"
+                android:paddingStart="10dp"
+                android:text="Female" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/patient_blood_group"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="15dp"
+        android:singleLine="true"
+        android:background="@drawable/theme_button_background"
+        android:elevation="3dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="2dp"
+        android:hint="Blood Group"
+        android:maxLength="3"
+        android:paddingStart="30dp"
+        android:textSize="15sp" />
+
+
+    <EditText
+        android:id="@+id/patient_address"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="15dp"
+        android:singleLine="true"
+        android:background="@drawable/theme_button_background"
+        android:elevation="3dp"
+        android:hint="Specialization"
+        android:inputType="textImeMultiLine"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="2dp"
+        android:paddingStart="30dp"
+        android:textSize="15sp" />
+
+    <EditText
+        android:id="@+id/patient_phone"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="15dp"
+        android:singleLine="true"
+        android:inputType="phone"
+        android:background="@drawable/theme_button_background"
+        android:elevation="3dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="2dp"
+        android:hint="Phone Number"
+        android:paddingStart="30dp"
+        android:textSize="15sp" />
+
+
+    <Button
+        android:id="@+id/patient_submit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:textAllCaps="false"
+        android:textSize="16sp"
+        android:fontFamily="@font/opensans_regular"
+        android:text="Submit"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/paymentactivity_button1"/>
+
+</LinearLayout>
