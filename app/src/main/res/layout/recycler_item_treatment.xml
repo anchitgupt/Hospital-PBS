@@ -1,0 +1,147 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:id="@+id/linearLayoutCancelItem"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginHorizontal="10dp"
+        android:background="@drawable/theme_button_background"
+        android:paddingHorizontal="10dp"
+        android:weightSum="10"
+        android:paddingVertical="10dp">
+
+        <!--Booing Details-->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="10"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_weight="5">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:fontFamily="@font/opensans_regular"
+                    android:text="ID"
+                    android:textColor="#000000"
+                    android:textSize="14dp" />
+
+                <TextView
+                    android:id="@+id/textViewid"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:textColor="@color/colorAccent2"
+                    android:textStyle="bold"
+                    android:text="1"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_marginTop="2dp"
+                android:layout_weight="5">
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:textSize="14dp"
+                    android:layout_weight="2"
+                    android:textColor="#000000"
+                    android:fontFamily="@font/opensans_regular"
+                    android:text="Treatment Name:"
+                    />
+
+                <TextView
+                    android:id="@+id/textViewName"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:textColor="@color/colorAccent2"
+                    android:textStyle="bold"
+                    android:text="Anchit"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_marginTop="2dp"
+                android:layout_weight="5">
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:textSize="14dp"
+                    android:layout_weight="2"
+                    android:textColor="#000000"
+                    android:fontFamily="@font/opensans_regular"
+                    android:text="Charges:"
+                    />
+
+                <TextView
+                    android:id="@+id/textViewCharges"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorAccent2"
+                    android:text="25"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_marginTop="2dp"
+                android:layout_weight="5">
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:textSize="14dp"
+                    android:layout_weight="2"
+                    android:textColor="#000000"
+                    android:fontFamily="@font/opensans_regular"
+                    android:text="Medicine Charges:"
+                    />
+
+                <TextView
+                    android:id="@+id/textViewMedCharges"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:textColor="@color/colorAccent2"
+                    android:textStyle="bold"
+                    android:text="A+"/>
+
+            </LinearLayout>
+
+
+
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>
+
+
+
+
+
+

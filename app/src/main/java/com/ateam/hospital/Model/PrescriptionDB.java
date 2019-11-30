@@ -23,10 +23,10 @@ import java.util.List;
 public class PrescriptionDB extends SQLiteOpenHelper {
 
     private static final int    DATABASE_VERSION = 1;
-    private static final String DATABASE_NAME = "db";
-    private static final String TABLE_DATA = "prescription";
-    private static final String KEY_ID = "pres_id";
-    private static final String KEY_DOC_ID = "doctor_id";
+    private static final String DATABASE_NAME = "db4";
+    private static final String TABLE_DATA   = "prescription";
+    private static final String KEY_ID       = "pres_id";
+    private static final String KEY_DOC_ID   = "doctor_id";
     private static final String KEY_TREAT_ID = "treat_id";
     Context context;
 
@@ -53,9 +53,6 @@ public class PrescriptionDB extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
 
     }
-
-
-
 
     public List<Prescription> getAllData() {
 
@@ -92,7 +89,6 @@ public class PrescriptionDB extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
 
-        values.put(KEY_ID, prescription.getPres_id());
         values.put(KEY_DOC_ID, prescription.getDoctorIDFromPres());
         values.put(KEY_TREAT_ID, prescription.getTreatmentIDFromPres());
 
@@ -112,7 +108,7 @@ public class PrescriptionDB extends SQLiteOpenHelper {
 
     public Prescription getData(int id) {
 
-        String selectQuery = "SELECT  * FROM " + TABLE_DATA + "WHERE pres_id=" + id;
+        String selectQuery = "SELECT  * FROM " + TABLE_DATA + " WHERE pres_id=" + id;
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
         Prescription acc = new Prescription();
@@ -134,8 +130,5 @@ public class PrescriptionDB extends SQLiteOpenHelper {
         }
         return acc;
     }
-
-
-
 }
 

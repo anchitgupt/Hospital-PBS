@@ -3,6 +3,9 @@ package com.ateam.hospital.Controller;
 import android.content.Context;
 
 import com.ateam.hospital.Model.DoctorDB;
+import com.ateam.hospital.Model.PatientDB;
+
+import java.util.List;
 
 /**
  * Project Hospital
@@ -75,4 +78,18 @@ public class Doctor extends UserBasic {
         long l = doctorDB.insertData(doctor);
         return l;
     }
+    public List<Doctor> getAllData(Context context) {
+        DoctorDB doctorDB = new DoctorDB(context);
+        return doctorDB.getAllData();
+    }
+
+    public long addData(Context context, Doctor d){
+        DoctorDB doctorDB = new DoctorDB(context);
+        return doctorDB.insertData(d);
+    }
+
+    public Doctor getDataById(Context context, int id){
+        return new DoctorDB(context).getData(id);
+    }
+
 }

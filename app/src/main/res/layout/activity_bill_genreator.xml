@@ -5,30 +5,51 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:layout_gravity="center_horizontal|center_vertical"
-    android:gravity="center_horizontal"
+    android:padding="18dp"
     tools:context=".View.BillGenreator">
 
     <TextView
-        android:layout_margin="5dp"
-        android:textSize="20sp"
-        android:text="Patient id"
-        android:gravity="center_horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/opensans_regular"
+        android:text="Bill Details"
+        android:textColor="#3FADA8"
+        android:textSize="40sp" />
+
+
+
+<!--    <EditText-->
+<!--        android:id="@+id/doctor_name"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="60dp"-->
+<!--        android:layout_marginTop="15dp"-->
+<!--        android:singleLine="true"-->
+<!--        android:background="@drawable/theme_button_background"-->
+<!--        android:elevation="3dp"-->
+<!--        android:layout_marginStart="2dp"-->
+<!--        android:layout_marginEnd="2dp"-->
+<!--        android:hint="Name"-->
+<!--        android:paddingStart="30dp"-->
+<!--        android:textSize="15sp" />-->
 
    <AutoCompleteTextView
+       android:layout_marginTop="50dp"
        android:id="@+id/auto_patientid"
-       android:hint="PATIENT ID"
-       android:layout_margin="5dp"
+       android:hint="Patient ID"
+       android:inputType="numberSigned"
+       android:gravity="center_horizontal|center_vertical"
+       android:background="@drawable/theme_button_background"
        android:layout_width="match_parent"
-       android:layout_height="wrap_content"/>
+       android:layout_height="40dp"/>
 
     <Button
         android:id="@+id/btn_addpatient"
         android:text="ADD New"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:background="@drawable/theme_button_background"/>
 
 <!--    <TextView-->
 <!--        android:layout_marginTop="40dp"-->
@@ -44,8 +65,42 @@
         android:text="Assign Room"
         android:layout_marginTop="40dp"
         android:layout_margin="10dp"
+        android:background="@drawable/theme_button_background"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/btn_doctorAssign"
+        android:text="Search Doctor"
+        android:layout_marginTop="40dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/theme_button_background"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/btn_treatmentAssign"
+        android:text="Search Treatment"
+        android:layout_marginTop="40dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/theme_button_background"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/btn_submit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:textAllCaps="false"
+        android:textSize="16sp"
+        android:inputType="numberSigned"
+        android:fontFamily="@font/opensans_regular"
+        android:text="Submit"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/paymentactivity_button1"/>
+
+
 
 
 

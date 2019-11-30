@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-<item android:id="@+id/menu_signout"
+    <item android:id="@+id/menu_signout"
     android:title="Signout"/>
-<item android:id="@+id/add_doctor"
+    <item android:id="@+id/add_doctor"
     android:title="Add Doctor"/>
-<item android:id="@+id/add_room"
-    android:title="Add Room"/>
+    <item android:id="@+id/show_patients"
+        android:title="Show Patients"/>
+    <item android:id="@+id/show_doctor"
+        android:title="Show Doctor"/>
+    <item android:id="@+id/show_treat"
+    android:title="Show TreatMent"/>
+    <item android:id="@+id/add_treat"
+        android:title="Add TreatMent"/>
+
 
 </menu>

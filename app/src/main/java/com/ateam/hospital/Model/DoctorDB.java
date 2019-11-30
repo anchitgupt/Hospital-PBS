@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 
@@ -21,7 +22,7 @@ import java.util.List;
 public class DoctorDB extends SQLiteOpenHelper {
 
     private static final int    DATABASE_VERSION = 1;
-    private static final String DATABASE_NAME = "db";
+    private static final String DATABASE_NAME = "db2";
     private static final String TABLE_DATA = "doctor";
 
     private static final String KEY_ID = "doctor_id";
@@ -42,8 +43,8 @@ public class DoctorDB extends SQLiteOpenHelper {
         String CREATE_DOCTOR_TABLE =
                 "CREATE TABLE " + TABLE_DATA +
                         "(" + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-                        + KEY_NAME     + "TEXT,"
-                        + KEY_AGE     + "INTEGER,"
+                        + KEY_NAME     + " TEXT,"
+                        + KEY_AGE     + " INTEGER,"
                         + KEY_SPECIAL  +" TEXT,"
                         + KEY_GENDER   +" BOOLEAN,"
                         + KEY_DEPT    +" TEXT,"
@@ -113,7 +114,7 @@ public class DoctorDB extends SQLiteOpenHelper {
     //TODO get by particular id
     public  Doctor getData(int id) {
 
-        String selectQuery = "SELECT  * FROM " + TABLE_DATA + "WHERE doctor_id=" + id;
+        String selectQuery = "SELECT  * FROM " + TABLE_DATA + " WHERE doctor_id=" + id;
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
         Doctor acc = new Doctor();
@@ -129,6 +130,30 @@ public class DoctorDB extends SQLiteOpenHelper {
             } while (cursor.moveToNext());
         }
         return acc;
+    }
+
+    public void getDbTableNames() {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        Cursor c = db.rawQuery("SELECT name FROM sqlite_master WHERE type='table'", null);
+        String  k ="";
+        if (c.moveToFirst()) {
+            while ( !c.isAfterLast() ) {
+                k = c.getString(c.getColumnIndex("name"));
+                Log.e("Name", c.getString(c.getColumnIndex("name")));
+                c.moveToNext();
+            }
+        }
+
+        Cursor c1 = db.rawQuery("SELECT name FROM '"+k+"'", null);
+        if (c1.moveToFirst()) {
+            while ( !c1.isAfterLast() ) {
+
+                Log.e("COunt: ", "getDbTableNames: "+ c1.getColumnCount() );
+                c1.moveToNext();
+            }
+        }
+
     }
 
 

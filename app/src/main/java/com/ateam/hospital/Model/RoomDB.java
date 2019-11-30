@@ -22,7 +22,7 @@ import java.util.List;
  */
 public class RoomDB extends SQLiteOpenHelper {
     private static final int    DATABASE_VERSION = 1;
-    private static final String DATABASE_NAME = "db";
+    private static final String DATABASE_NAME = "db5";
     private static final String TABLE_DATA = "room";
 
     private static final String KEY_ID = "room_id";
@@ -41,9 +41,9 @@ public class RoomDB extends SQLiteOpenHelper {
         String CREATE_ROOM_TABLE =
                 "CREATE TABLE " + TABLE_DATA +
                         "(" + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-                        + KEY_WARD     +"TEXT,"
-                        + KEY_BED     + "TEXT,"
-                        + KEY_STATUS     + "BOOLEAN"
+                        + KEY_WARD     +" TEXT,"
+                        + KEY_BED     + " TEXT,"
+                        + KEY_STATUS     + " BOOLEAN"
                         +")";
         db.execSQL(CREATE_ROOM_TABLE);
     }
@@ -101,11 +101,12 @@ public class RoomDB extends SQLiteOpenHelper {
         return db.delete(TABLE_DATA, KEY_ID + "=" + id, null) > 0;
     }
 
+
     //TODO get by particular id
 
     public Room getData(int id) {
 
-        String selectQuery = "SELECT  * FROM " + TABLE_DATA + "WHERE room_id =" + id;
+        String selectQuery = "SELECT  * FROM " + TABLE_DATA + " WHERE room_id =" + id;
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
         Room acc = new Room();
@@ -119,4 +120,32 @@ public class RoomDB extends SQLiteOpenHelper {
         }
         return acc;
     }
+    public int getRoomCount() {
+        String countQuery = "SELECT  * FROM " + TABLE_DATA;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(countQuery, null);
+        int count = cursor.getCount();
+        cursor.close();
+        return count;
+    }
+
+    public List<Integer> getTotalAvailableRooms() {
+        List<Integer> l = new ArrayList<>();
+        String selectQuery = "SELECT  * FROM " + TABLE_DATA+" WHERE status =" + 1;
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                l.add(Integer.parseInt(cursor.getString(0)));
+            } while (cursor.moveToNext());
+        }
+        return l;
+    }
+
+    public void setStatus(int id, int status){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("UPDATE "+ TABLE_DATA+ " set status="+ status+" where room_id="+id);
+    }
+
 }

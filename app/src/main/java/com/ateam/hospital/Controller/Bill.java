@@ -1,7 +1,13 @@
 package com.ateam.hospital.Controller;
 
+import android.content.Context;
+
+import com.ateam.hospital.Model.BillDB;
+import com.ateam.hospital.Model.TreatmentDB;
+
 import java.util.Date;
 import java.text.SimpleDateFormat;
+import java.util.List;
 import java.util.Locale;
 
 /**
@@ -33,6 +39,14 @@ public class Bill {
 
     }
 
+    public Bill(PatientDetail patientDetail, Prescription prescription, Room room, int status, String arrdate, String depdate) {
+        this.patientDetail = patientDetail;
+        this.prescription = prescription;
+        this.room = room;
+        this.status = status;
+        this.arrdate = arrdate;
+        this.depdate = depdate;
+    }
 
     public int getPatientIDFromBill(){
         return patientDetail.getPatient_id();
@@ -42,6 +56,9 @@ public class Bill {
         return room.getRoom_id();
     }
 
+    public int getPrescriptionIDFromBill(){
+        return prescription.getPres_id();
+    }
 
     public int getBill_id() {
         return bill_id;
@@ -104,5 +121,13 @@ public class Bill {
                 "yyyy-MM-dd HH:mm:ss", Locale.getDefault());
         Date date = new Date();
         return dateFormat.format(date);
+    }
+
+    public long insertData(Context context, Bill bill){
+        return new BillDB(context).insertData(bill);
+    }
+    public List<Bill> getAllData(Context context) {
+        BillDB billDB = new BillDB(context);
+        return billDB.getAllData();
     }
 }

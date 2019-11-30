@@ -90,7 +90,7 @@
     </LinearLayout>
 
     <EditText
-        android:id="@+id/patient_blood_group"
+        android:id="@+id/patient_blood"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="15dp"
@@ -113,7 +113,7 @@
         android:singleLine="true"
         android:background="@drawable/theme_button_background"
         android:elevation="3dp"
-        android:hint="Specialization"
+        android:hint="Address"
         android:inputType="textImeMultiLine"
         android:layout_marginStart="2dp"
         android:layout_marginEnd="2dp"

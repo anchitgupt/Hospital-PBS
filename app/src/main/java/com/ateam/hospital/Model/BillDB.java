@@ -23,10 +23,10 @@ import java.util.List;
  */
 public class BillDB extends SQLiteOpenHelper {
 
-    private static final int    DATABASE_VERSION = 1;
-    private static final String DATABASE_NAME = "db";
-    private static final String TABLE_DATA = "bill";
     private Context context;
+    private static final int    DATABASE_VERSION = 1;
+    private static final String DATABASE_NAME = "db1";
+    private static final String TABLE_DATA = "bill";
     private static final String KEY_ID      = "bill_id";
     private static final String KEY_PATIENT_ID    = "patient_id";
     private static final String KEY_PRES_ID     = "pres_id";
@@ -47,8 +47,8 @@ public class BillDB extends SQLiteOpenHelper {
                 "CREATE TABLE " + TABLE_DATA +
                         "("
                         + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-                        + KEY_PATIENT_ID     + "INTEGER,"
-                        + KEY_PRES_ID     + "INTEGER,"
+                        + KEY_PATIENT_ID     + " INTEGER,"
+                        + KEY_PRES_ID     + " INTEGER,"
                         + KEY_ROOM_ID  +" INTEGER,"
                         + KEY_STATUS   +" INTEGER,"
                         + KEY_ARR    +" TEXT,"
@@ -109,11 +109,10 @@ public class BillDB extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
 
-       values.put(KEY_ID        , bill.getBill_id());
-       values.put(KEY_PATIENT_ID, bill.getBill_id());
-       values.put(KEY_PRES_ID   , bill.getPatientIDFromBill());
+       values.put(KEY_PATIENT_ID, bill.getPatientIDFromBill());
+       values.put(KEY_PRES_ID   , bill.getPrescriptionIDFromBill());
        values.put(KEY_ROOM_ID   , bill.getRoomIDFromBill());
-       values.put(KEY_STATUS    , bill.getRoomIDFromBill());
+       values.put(KEY_STATUS    , bill.getStatus());
        values.put(KEY_ARR       , bill.getArrdate());
        values.put(KEY_DEP       , bill.getDepdate());
 
@@ -132,7 +131,7 @@ public class BillDB extends SQLiteOpenHelper {
     //TODO get by particular id
     public  Bill getData(int id) {
 
-        String selectQuery = "SELECT  * FROM " + TABLE_DATA + "WHERE bill_id=" + id;
+        String selectQuery = "SELECT  * FROM " + TABLE_DATA + " WHERE bill_id=" + id;
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
         Bill acc = new Bill();

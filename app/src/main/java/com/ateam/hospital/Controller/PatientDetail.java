@@ -1,11 +1,19 @@
 package com.ateam.hospital.Controller;
 
+import android.content.Context;
+
+import com.ateam.hospital.Model.PatientDB;
+import com.ateam.hospital.Model.RoomDB;
+
+import java.util.List;
+
 /**
  * Project Hospital
  * Created by Anchit Gupta on 2019-11-25.
  * Under the MIT License
  */
 public class PatientDetail extends UserBasic {
+
 
     int patient_id;
     String address;
@@ -25,6 +33,7 @@ public class PatientDetail extends UserBasic {
         this.phoneno = phoneno;
         this.blood = blood;
     }
+
 
     public void setPatient_id(int patient_id) {
         this.patient_id = patient_id;
@@ -52,5 +61,24 @@ public class PatientDetail extends UserBasic {
 
     public void setPhoneno(String phoneno) {
         this.phoneno = phoneno;
+    }
+
+    public List<PatientDetail> getAllData(Context context) {
+        PatientDB patientDB = new PatientDB(context);
+        return patientDB.getAllData();
+    }
+
+    public long addData(Context context, PatientDetail p){
+        PatientDB patientDB = new PatientDB(context);
+        return patientDB.insertData(p);
+    }
+
+    public List<Integer> getIDs(Context context){
+        PatientDB patientDB = new PatientDB(context);
+        return patientDB.getDataIDs();
+    }
+
+    public PatientDetail getDataById(Context context, int id){
+        return new PatientDB(context).getData(id);
     }
 }

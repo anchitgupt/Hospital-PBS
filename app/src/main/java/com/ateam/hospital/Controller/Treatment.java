@@ -1,5 +1,12 @@
 package com.ateam.hospital.Controller;
 
+import android.content.Context;
+
+import com.ateam.hospital.Model.DoctorDB;
+import com.ateam.hospital.Model.PrescriptionDB;
+import com.ateam.hospital.Model.TreatmentDB;
+import com.ateam.hospital.View.ShowData;
+
 import java.util.List;
 
 /**
@@ -67,4 +74,15 @@ public class Treatment {
         return null;
     }
 
+    public long insertData(Context context, Treatment treatment){
+        return new TreatmentDB(context).insertData(treatment);
+    }
+
+    public List<Treatment> getAllData(Context context) {
+        return new TreatmentDB(context).getAllData();
+    }
+
+    public Treatment getDataById(Context context, int id){
+        return new TreatmentDB(context).getData(id);
+    }
 }

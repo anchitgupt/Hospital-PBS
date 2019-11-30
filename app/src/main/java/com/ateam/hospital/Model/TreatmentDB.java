@@ -23,7 +23,7 @@ import java.util.List;
 public class TreatmentDB extends SQLiteOpenHelper {
 
     private static final int    DATABASE_VERSION = 1;
-    private static final String DATABASE_NAME = "db";
+    private static final String DATABASE_NAME = "db6";
     private static final String TABLE_DATA = "treatment";
 
     private static final String KEY_ID     = "treat_id";
@@ -43,9 +43,9 @@ public class TreatmentDB extends SQLiteOpenHelper {
                 "CREATE TABLE " + TABLE_DATA +
                         "("
                         + KEY_ID        + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-                        + KEY_NAME      + "TEXT,"
-                        + KEY_TREAT     + "INTEGER,"
-                        + KEY_MED       + "INTEGER"
+                        + KEY_NAME      + " TEXT,"
+                        + KEY_TREAT     + " INTEGER,"
+                        + KEY_MED       + " INTEGER"
                         +")";
         db.execSQL(CREATE_TREAT_TABLE);
     }
@@ -106,7 +106,7 @@ public class TreatmentDB extends SQLiteOpenHelper {
 
     public Treatment getData(int id) {
 
-        String selectQuery = "SELECT  * FROM " + TABLE_DATA + "WHERE treat_id=" + id;
+        String selectQuery = "SELECT  * FROM " + TABLE_DATA + " WHERE treat_id=" + id;
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
         Treatment acc = new Treatment();

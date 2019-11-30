@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 
@@ -23,7 +24,7 @@ import java.util.List;
 public class PatientDB extends SQLiteOpenHelper {
 
     private static final int    DATABASE_VERSION = 1;
-    private static final String DATABASE_NAME = "db";
+    private static final String DATABASE_NAME = "db3";
     private static final String TABLE_DATA = "patient";
 
     private static final String KEY_ID = "patient_id";
@@ -43,9 +44,10 @@ public class PatientDB extends SQLiteOpenHelper {
 
         String CREATE_PATIENT_TABLE =
                 "CREATE TABLE " + TABLE_DATA +
-                        "(" + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-                        + KEY_NAME     + "TEXT,"
-                        + KEY_AGE     + "INTEGER,"
+                        "("
+                        + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+                        + KEY_NAME     + " TEXT,"
+                        + KEY_AGE     + " INTEGER,"
                         + KEY_ADDRESS  +" TEXT,"
                         + KEY_GENDER   +" BOOLEAN,"
                         + KEY_PHONE    +" TEXT,"
@@ -95,6 +97,14 @@ public class PatientDB extends SQLiteOpenHelper {
 
         ContentValues values = new ContentValues();
 
+        Log.e("Class", "insertData: "+patient.getName());
+        Log.e("Class", "insertData: "+patient.getAddress());
+        Log.e("Class", "insertData: "+patient.getGender());
+        Log.e("Class", "insertData: "+patient.getPhoneno());
+        Log.e("Class", "insertData: "+patient.getBlood());
+
+
+
         values.put(KEY_NAME, patient.getName());
         values.put(KEY_AGE, patient.getAge());
         values.put(KEY_ADDRESS, patient.getAddress());
@@ -103,7 +113,7 @@ public class PatientDB extends SQLiteOpenHelper {
         values.put(KEY_BLOOD, patient.getBlood());
 
         long k = db.insert(TABLE_DATA, null, values);
-
+        Log.e("Patient", "insertData: " + String.valueOf(k) );
         return k;
     }
 
@@ -116,7 +126,7 @@ public class PatientDB extends SQLiteOpenHelper {
     //TODO get by particular id
     public PatientDetail getData(int id) {
 
-        String selectQuery = "SELECT  * FROM " + TABLE_DATA + "WHERE patient_id=" + id;
+        String selectQuery = "SELECT  * FROM " + TABLE_DATA + " WHERE patient_id=" + id;
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
         PatientDetail acc = new PatientDetail();
@@ -133,6 +143,47 @@ public class PatientDB extends SQLiteOpenHelper {
         }
         return acc;
     }
+
+    public List<Integer> getDataIDs() {
+        List<Integer> l = new ArrayList<>();
+        String selectQuery = "SELECT  * FROM " + TABLE_DATA;
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                l.add(Integer.parseInt(cursor.getString(0)));
+            } while (cursor.moveToNext());
+        }
+        return l;
+    }
+
+
+    public void getDbTableNames() {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        Cursor c = db.rawQuery("SELECT name FROM sqlite_master WHERE type='table'", null);
+        String  k ="";
+        if (c.moveToFirst()) {
+            while ( !c.isAfterLast() ) {
+                k = c.getString(c.getColumnIndex("name"));
+                Log.e("Name", c.getString(c.getColumnIndex("name")));
+                c.moveToNext();
+            }
+        }
+
+        Cursor c1 = db.rawQuery("SELECT name FROM '"+k+"'", null);
+        if (c1.moveToFirst()) {
+            while ( !c1.isAfterLast() ) {
+
+                Log.e("COunt: ", "getDbTableNames: "+ c1.getColumnCount() );
+                c1.moveToNext();
+            }
+        }
+
+    }
+
+
 
 
 }

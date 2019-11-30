@@ -1,5 +1,13 @@
 package com.ateam.hospital.Controller;
 
+import android.content.Context;
+
+import com.ateam.hospital.Model.DoctorDB;
+import com.ateam.hospital.Model.RoomDB;
+import com.ateam.hospital.Model.TreatmentDB;
+
+import java.util.List;
+
 /**
  * Project Hospital
  * Created by Anchit Gupta on 2019-11-26.
@@ -14,6 +22,13 @@ public class Room {
 
     public Room(int room_id, String bedno, String ward, boolean status) {
         this.room_id = room_id;
+        this.bedno = bedno;
+        this.ward = ward;
+        this.status = status;
+    }
+
+
+    public Room(String bedno, String ward, boolean status) {
         this.bedno = bedno;
         this.ward = ward;
         this.status = status;
@@ -54,4 +69,32 @@ public class Room {
     public void setWard(String ward) {
         this.ward = ward;
     }
+
+    public int getTotalRooms(Context context){
+       return new RoomDB(context).getRoomCount();
+    }
+
+    public long insertInDB(Context context, Room room){
+        RoomDB roomDB = new RoomDB(context);
+        long l = roomDB.insertData(room);
+        return l;
+    }
+
+    public List<Integer> getTotalAvailableRooms(Context context){
+        return new RoomDB(context).getTotalAvailableRooms();
+    }
+
+    public void setStatus(Context context, int id, int status){
+        new RoomDB(context).setStatus(id,status);
+    }
+
+    public List<Room> getAllData(Context context) {
+        return new RoomDB(context).getAllData();
+    }
+
+    public Room getDataById(Context context, int id){
+        return new RoomDB(context).getData(id);
+    }
+
+
 }
