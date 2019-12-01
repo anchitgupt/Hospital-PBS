@@ -25,8 +25,9 @@ public class Bill {
     int status;
     String arrdate;
     String depdate;
+    int total;
 
-    public Bill(int bill_id, PatientDetail patientDetail, Prescription prescription, Room room, int status, String arrdate, String depdate) {
+    public Bill(int bill_id, PatientDetail patientDetail, Prescription prescription, Room room, int status, String arrdate, String depdate, int total) {
         this.bill_id = bill_id;
         this.patientDetail = patientDetail;
         this.prescription = prescription;
@@ -34,19 +35,21 @@ public class Bill {
         this.status = status;
         this.arrdate = arrdate;
         this.depdate = depdate;
+        this.total = total;
     }
 
     public Bill() {
 
     }
 
-    public Bill(PatientDetail patientDetail, Prescription prescription, Room room, int status, String arrdate, String depdate) {
+    public Bill(PatientDetail patientDetail, Prescription prescription, Room room, int status, String arrdate, String depdate, int total) {
         this.patientDetail = patientDetail;
         this.prescription = prescription;
         this.room = room;
         this.status = status;
         this.arrdate = arrdate;
         this.depdate = depdate;
+        this.total = total;
     }
 
     public int getPatientIDFromBill(){
@@ -117,6 +120,14 @@ public class Bill {
         this.depdate = depdate;
     }
 
+    public int getTotal() {
+        return total;
+    }
+
+    public void setTotal(int total) {
+        this.total = total;
+    }
+
     private String getDateTime() {
         SimpleDateFormat dateFormat = new SimpleDateFormat(
                 "yyyy-MM-dd HH:mm:ss", Locale.getDefault());
@@ -141,5 +152,8 @@ public class Bill {
     }
     public void setStatus(Context context, int id, int status){
         new BillDB(context).setStatus(id,status);
+    }
+    public void setTotal(Context context, int id, int total){
+        new BillDB(context).setTotal(id,total);
     }
 }

@@ -62,7 +62,7 @@ public class BillStatus extends AppCompatActivity implements View.OnClickListene
         int general = 1000;
         int icu = 2000;
 
-
+        findViewById(R.id.tvtvtreatnametag).setVisibility(View.GONE);
         tvptname = findViewById(R.id.patient_name);
         tvarradate = findViewById(R.id.arr_date);
         tvdpdate = findViewById(R.id.dep_date);
@@ -164,6 +164,7 @@ public class BillStatus extends AppCompatActivity implements View.OnClickListene
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                     bill.setStatus(BillStatus.this, bill.getBill_id(), 0);
+                    bill.setTotal(BillStatus.this, bill.getBill_id(), total);
                     int roomid = bill.getRoom().getRoom_id();
                     new Room().setStatus(BillStatus.this, roomid, 1);
                     submit.setVisibility(View.GONE);
@@ -176,9 +177,6 @@ public class BillStatus extends AppCompatActivity implements View.OnClickListene
             }
         });
         builderSingle.show();
-
-
-
 
     }
 }

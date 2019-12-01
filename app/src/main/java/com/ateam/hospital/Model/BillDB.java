@@ -34,6 +34,7 @@ public class BillDB extends SQLiteOpenHelper {
     private static final String KEY_STATUS  = "status";
     private static final String KEY_ARR   = "arrdate";
     private static final String KEY_DEP = "depdate";
+    private static final String KEY_TOTAL = "total";
 
     public BillDB(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -52,7 +53,8 @@ public class BillDB extends SQLiteOpenHelper {
                         + KEY_ROOM_ID  +" INTEGER,"
                         + KEY_STATUS   +" INTEGER,"
                         + KEY_ARR    +" TEXT,"
-                        + KEY_DEP    +" TEXT"
+                        + KEY_DEP    +" TEXT,"
+                        + KEY_TOTAL + " INTEGER"
                         +")";
         db.execSQL(CREATE_DOCTOR_TABLE);
     }
@@ -96,6 +98,7 @@ public class BillDB extends SQLiteOpenHelper {
                 acc.setStatus(cursor.getInt(4));
                 acc.setArrdate(cursor.getString(5));
                 acc.setDepdate(cursor.getString(6));
+                acc.setTotal(cursor.getInt(7));
 
                 // Adding contact to list
                 AccList.add(acc);
@@ -115,6 +118,7 @@ public class BillDB extends SQLiteOpenHelper {
        values.put(KEY_STATUS    , bill.getStatus());
        values.put(KEY_ARR       , bill.getArrdate());
        values.put(KEY_DEP       , bill.getDepdate());
+        values.put(KEY_TOTAL      , bill.getTotal());
 
         long k = db.insert(TABLE_DATA, null, values);
 
@@ -158,6 +162,7 @@ public class BillDB extends SQLiteOpenHelper {
                 acc.setStatus(cursor.getInt(4));
                 acc.setArrdate(cursor.getString(5));
                 acc.setDepdate(cursor.getString(6));
+                acc.setTotal(cursor.getInt(7));
 
             } while (cursor.moveToNext());
         }
@@ -204,6 +209,7 @@ public class BillDB extends SQLiteOpenHelper {
                 acc.setStatus(cursor.getInt(4));
                 acc.setArrdate(cursor.getString(5));
                 acc.setDepdate(cursor.getString(6));
+                acc.setTotal(cursor.getInt(7));
 
                 // Adding contact to list
                 if(cursor.getInt(4) == 1)
@@ -211,5 +217,10 @@ public class BillDB extends SQLiteOpenHelper {
             } while (cursor.moveToNext());
         }
         return AccList;
+    }
+
+    public void setTotal(int id, int total) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("UPDATE "+ TABLE_DATA+ " set total="+ total+" where bill_id="+id);
     }
 }

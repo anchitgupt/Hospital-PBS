@@ -268,8 +268,9 @@ public class BillGenreator extends AppCompatActivity implements View.OnClickList
                 Log.e("Date Dep", "onClick: " + depdate );
 
                 int status = 1;
+                int total = 0;
 
-                Bill bill = new Bill(patientDetail, prescription, rooms, status, arrdate, depdate);
+                Bill bill = new Bill(patientDetail, prescription, rooms, status, arrdate, depdate, total);
 
                 l = bill.insertData(this, bill);
 

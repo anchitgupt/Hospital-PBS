@@ -22,6 +22,14 @@
             android:textColor="#3FADA8"
             android:textSize="40sp" />
 
+        <TextView
+            android:text="Name"
+            android:textSize="20sp"
+            android:layout_marginStart="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/opensans_regular"
+            />
 
 
         <TextView
@@ -39,6 +47,15 @@
             android:text="Name"
             android:textSize="15sp" />
 
+        <TextView
+            android:text="Date"
+            android:textSize="20sp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/opensans_regular"
+            />
 
         <TextView
             android:layout_gravity="center_vertical|center_horizontal"
@@ -54,6 +71,7 @@
             android:layout_marginStart="2dp"
             android:layout_marginEnd="2dp"
             android:textSize="15sp" />
+
 
         <TextView
             android:layout_gravity="center_vertical|center_horizontal"
@@ -74,6 +92,16 @@
         <!--    Radio Button for gender-->
 
         <TextView
+            android:text="Doctor Name"
+            android:textSize="20sp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/opensans_regular"
+            />
+
+        <TextView
             android:layout_gravity="center_vertical|center_horizontal"
             android:gravity="center_horizontal|center_vertical"
             android:id="@+id/doctor_name"
@@ -89,6 +117,15 @@
             android:textSize="15sp" />
 
         <TextView
+            android:text="Doctor Charges"
+            android:textSize="20sp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/opensans_regular"
+            />
+        <TextView
             android:layout_gravity="center_vertical|center_horizontal"
             android:gravity="center_horizontal|center_vertical"
             android:id="@+id/doctor_charges"
@@ -103,6 +140,15 @@
             android:text="Doctor Charges"
             android:textSize="15sp" />
 
+        <TextView
+            android:text="Treatment Name"
+            android:textSize="20sp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/opensans_regular"
+            />
 
         <TextView
             android:layout_gravity="center_vertical|center_horizontal"
@@ -120,6 +166,16 @@
             android:textSize="15sp" />
 
         <TextView
+            android:text="Treatment Charges"
+            android:textSize="20sp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/opensans_regular"
+            />
+
+        <TextView
             android:layout_gravity="center_vertical|center_horizontal"
             android:gravity="center_horizontal|center_vertical"
             android:id="@+id/treatment_charges"
@@ -135,6 +191,16 @@
             android:textSize="15sp" />
 
         <TextView
+            android:text="Room"
+            android:textSize="20sp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/opensans_regular"
+            />
+
+        <TextView
             android:layout_gravity="center_vertical|center_horizontal"
             android:gravity="center_horizontal|center_vertical"
             android:id="@+id/room"
@@ -148,6 +214,17 @@
             android:layout_marginEnd="2dp"
             android:text="Room No"
             android:textSize="15sp" />
+
+        <TextView
+            android:text="Room Charges"
+            android:textSize="20sp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/opensans_regular"
+            />
+
         <TextView
             android:layout_gravity="center_vertical|center_horizontal"
             android:gravity="center_horizontal|center_vertical"
@@ -162,6 +239,16 @@
             android:layout_marginEnd="2dp"
             android:text="Room Charges"
             android:textSize="15sp" />
+
+        <TextView
+            android:text="Medicine Charges"
+            android:textSize="20sp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/opensans_regular"
+            />
 
         <TextView
             android:layout_gravity="center_vertical|center_horizontal"
@@ -179,6 +266,17 @@
             android:textSize="15sp" />
 
         <TextView
+            android:id="@+id/tvtvtreatnametag"
+            android:text="Total Charges"
+            android:textSize="20sp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/opensans_regular"
+            />
+
+        <TextView
             android:layout_gravity="center_vertical|center_horizontal"
             android:gravity="center_horizontal|center_vertical"
             android:id="@+id/total_charges"
@@ -190,7 +288,7 @@
             android:elevation="3dp"
             android:layout_marginStart="2dp"
             android:layout_marginEnd="2dp"
-            android:text="Medicine Charges"
+            android:text="Total Charges"
             android:textSize="15sp" />
 
 

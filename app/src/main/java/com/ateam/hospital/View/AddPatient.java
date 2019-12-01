@@ -19,10 +19,10 @@ import com.ateam.hospital.R;
 public class AddPatient extends AppCompatActivity implements View.OnClickListener {
 
 
-    EditText etname, etage, etblood, etaddress, etphone;
+    private EditText etname, etage, etblood, etaddress, etphone;
     private RadioGroup radioGroup;
-    Boolean radio = false;
-    Button submit;
+    private Boolean radio = false;
+    private Button submit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,10 +39,7 @@ public class AddPatient extends AppCompatActivity implements View.OnClickListene
         etphone = findViewById(R.id.patient_phone);
 
         submit = findViewById(R.id.patient_submit);
-
-
         submit.setOnClickListener(this);
-
 
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
