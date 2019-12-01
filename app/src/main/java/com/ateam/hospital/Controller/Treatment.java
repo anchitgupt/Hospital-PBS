@@ -16,9 +16,9 @@ import java.util.List;
  */
 public class Treatment {
 
-    int treatment_id;
-    String treatmentname;
-    int charges;
+    private int treatment_id;
+    private String treatmentname;
+    private int charges;
     double medicine_charges;
 
     public Treatment(int treatment_id, String treatmentname, int charges, double medicine_charges) {

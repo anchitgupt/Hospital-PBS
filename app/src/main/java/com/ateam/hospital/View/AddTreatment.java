@@ -2,6 +2,7 @@ package com.ateam.hospital.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -36,17 +37,29 @@ public class AddTreatment extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
-        String name = etname.getText().toString().trim();
-        int charges = Integer.parseInt(etcharges.getText().toString().trim());
-        int med = Integer.parseInt(etmed.getText().toString().trim());
 
 
-           long l =  new Treatment().insertData(this, new Treatment(name, charges, med));
-            if (l>0){
+
+        if (TextUtils.isEmpty(etname.getText().toString().trim())||
+                TextUtils.isEmpty(etcharges.getText().toString().trim())
+                || TextUtils.isEmpty(etmed.getText().toString().trim()))
+        {
+            Toast.makeText(this, "Fill All Values", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            String name = etname.getText().toString().trim();
+            int charges = Integer.parseInt(etcharges.getText().toString().trim());
+            int med = Integer.parseInt(etmed.getText().toString().trim());
+
+            long l = new Treatment().insertData(this, new Treatment(name, charges, med));
+            if (l > 0) {
                 Toast.makeText(this, "Your ID is:  " + String.valueOf(l), Toast.LENGTH_LONG).show();
+                finish();
+                startActivity(new Intent(this, BillActivity.class));
             } else {
-                Log.e("Insert", "onClick: "+ l);
+                Log.e("Insert", "onClick: " + l);
             }
+        }
 
     }
 }

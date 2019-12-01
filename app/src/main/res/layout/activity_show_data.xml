@@ -8,6 +8,14 @@
     android:orientation="vertical"
     tools:context=".View.ShowData">
 
+    <TextView
+        android:id="@+id/tvhead"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/opensans_regular"
+        android:text="Doctors List"
+        android:textColor="#3FADA8"
+        android:textSize="40sp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/data_recycler"

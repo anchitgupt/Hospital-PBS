@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".View.BillStatus">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="18dp">
+
+        <TextView
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:gravity="center_horizontal|center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/opensans_regular"
+            android:text="Patient Bill"
+            android:textColor="#3FADA8"
+            android:textSize="40sp" />
+
+
+
+        <TextView
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:gravity="center_horizontal|center_vertical"
+            android:id="@+id/patient_name"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="15dp"
+            android:singleLine="true"
+            android:background="@drawable/theme_button_background"
+            android:elevation="3dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="2dp"
+            android:text="Name"
+            android:textSize="15sp" />
+
+
+        <TextView
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:gravity="center_horizontal|center_vertical"
+            android:id="@+id/arr_date"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="15dp"
+            android:singleLine="true"
+            android:background="@drawable/theme_button_background"
+            android:elevation="3dp"
+            android:text="Date"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="2dp"
+            android:textSize="15sp" />
+
+        <TextView
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:gravity="center_horizontal|center_vertical"
+            android:id="@+id/dep_date"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="15dp"
+            android:singleLine="true"
+            android:background="@drawable/theme_button_background"
+            android:elevation="3dp"
+            android:text="Date"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="2dp"
+            android:textSize="15sp" />
+
+
+        <!--    Radio Button for gender-->
+
+        <TextView
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:gravity="center_horizontal|center_vertical"
+            android:id="@+id/doctor_name"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="15dp"
+            android:singleLine="true"
+            android:background="@drawable/theme_button_background"
+            android:elevation="3dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="2dp"
+            android:text="Doctor Name"
+            android:textSize="15sp" />
+
+        <TextView
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:gravity="center_horizontal|center_vertical"
+            android:id="@+id/doctor_charges"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="15dp"
+            android:singleLine="true"
+            android:background="@drawable/theme_button_background"
+            android:elevation="3dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="2dp"
+            android:text="Doctor Charges"
+            android:textSize="15sp" />
+
+
+        <TextView
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:gravity="center_horizontal|center_vertical"
+            android:id="@+id/treatment"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="15dp"
+            android:singleLine="true"
+            android:background="@drawable/theme_button_background"
+            android:elevation="3dp"
+            android:text="Treatment"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="2dp"
+            android:textSize="15sp" />
+
+        <TextView
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:gravity="center_horizontal|center_vertical"
+            android:id="@+id/treatment_charges"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="15dp"
+            android:singleLine="true"
+            android:background="@drawable/theme_button_background"
+            android:elevation="3dp"
+            android:text="Treatment Charges"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="2dp"
+            android:textSize="15sp" />
+
+        <TextView
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:gravity="center_horizontal|center_vertical"
+            android:id="@+id/room"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="15dp"
+            android:singleLine="true"
+            android:background="@drawable/theme_button_background"
+            android:elevation="3dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="2dp"
+            android:text="Room No"
+            android:textSize="15sp" />
+        <TextView
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:gravity="center_horizontal|center_vertical"
+            android:id="@+id/room_charges"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="15dp"
+            android:singleLine="true"
+            android:background="@drawable/theme_button_background"
+            android:elevation="3dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="2dp"
+            android:text="Room Charges"
+            android:textSize="15sp" />
+
+        <TextView
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:gravity="center_horizontal|center_vertical"
+            android:id="@+id/medicine_charges"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="15dp"
+            android:singleLine="true"
+            android:background="@drawable/theme_button_background"
+            android:elevation="3dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="2dp"
+            android:text="Medicine Charges"
+            android:textSize="15sp" />
+
+        <TextView
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:gravity="center_horizontal|center_vertical"
+            android:id="@+id/total_charges"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="15dp"
+            android:singleLine="true"
+            android:background="@drawable/theme_button_background"
+            android:elevation="3dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="2dp"
+            android:text="Medicine Charges"
+            android:textSize="15sp" />
+
+
+        <Button
+            android:id="@+id/patient_submit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            android:fontFamily="@font/opensans_regular"
+            android:text="Discharge"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/paymentactivity_button1"/>
+
+    </LinearLayout>
+
+</ScrollView>

@@ -17,9 +17,9 @@ import java.util.List;
 
 public class Prescription {
 
-    int       pres_id;
-    Doctor    doctor;
-    Treatment treatment;
+    private int       pres_id;
+    private Doctor    doctor;
+    private Treatment treatment;
 
     public Prescription(Doctor doctor, Treatment treatment) {
         this.doctor = doctor;

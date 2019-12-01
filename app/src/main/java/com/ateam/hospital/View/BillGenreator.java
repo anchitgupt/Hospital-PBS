@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -69,11 +70,12 @@ public class BillGenreator extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void onClick(View view) {
+
         if (view == assignRoom)
         {
             AlertDialog.Builder builderSingle = new AlertDialog.Builder(BillGenreator.this);
             builderSingle.setIcon(R.drawable.ic_launcher_foreground);
-            builderSingle.setTitle("Select One Name:-");
+            builderSingle.setTitle("Select Bed :-");
 
             final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(BillGenreator.this, android.R.layout.select_dialog_singlechoice);
             final List<Room> re = new Room().getAllData(this);
@@ -104,7 +106,7 @@ public class BillGenreator extends AppCompatActivity implements View.OnClickList
                         Toast.makeText(BillGenreator.this, "" + room, Toast.LENGTH_SHORT).show();
                     }
 
-                    builderInner.setTitle("Your Selected Item is");
+                    builderInner.setTitle("Your Selected Bed is");
                     builderInner.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog,int which) {
@@ -170,7 +172,7 @@ public class BillGenreator extends AppCompatActivity implements View.OnClickList
         {
             AlertDialog.Builder builderSingle = new AlertDialog.Builder(BillGenreator.this);
             builderSingle.setIcon(R.drawable.ic_launcher_foreground);
-            builderSingle.setTitle("Select Doctor:-");
+            builderSingle.setTitle("Select Treatment:-");
 
             final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(BillGenreator.this,android.R.layout.simple_list_item_1);
             final List<Treatment> re = new Treatment().getAllData(this);
@@ -204,7 +206,7 @@ public class BillGenreator extends AppCompatActivity implements View.OnClickList
 //                    Log.e("Index", "onClick: "+String.valueOf(index));
                     AlertDialog.Builder builderInner = new AlertDialog.Builder(BillGenreator.this);
                     builderInner.setMessage(strName);
-                    builderInner.setTitle("Your Selected Doctor:");
+                    builderInner.setTitle("Your Selected Treatment:");
                     builderInner.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog,int which) {
@@ -226,12 +228,7 @@ public class BillGenreator extends AppCompatActivity implements View.OnClickList
 //                progressDialog.setMessage("Creating Bill");
 
 
-
-
-
-
                 Room rooms = new Room().getDataById(this, room);
-
 
 //
                 int pid = Integer.parseInt(actv.getText().toString().trim());
@@ -285,6 +282,8 @@ public class BillGenreator extends AppCompatActivity implements View.OnClickList
                 rooms.setStatus(this, room, 0);
 
                 Log.e("Room", "onClick: Room Status Updated");
+                finish();
+                startActivity(new Intent(this, BillActivity.class));
 
             }
         }

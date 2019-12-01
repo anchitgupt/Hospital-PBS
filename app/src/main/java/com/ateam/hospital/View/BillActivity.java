@@ -31,6 +31,7 @@ import java.util.List;
 
 public class BillActivity extends AppCompatActivity {
 
+    public BillActivity(){}
 
     RecyclerView recyclerView;
     @Override
@@ -54,12 +55,12 @@ public class BillActivity extends AppCompatActivity {
 
         List<Bill> listBill = new ArrayList<>();
         Bill b = new Bill();
-        listBill = b.getAllData(this);
+        listBill = b.getAllDataSetStatus(this);
 
         Log.e("Size", "onCreate: " +listBill.size() );
         recyclerView = findViewById(R.id.bill_recycler);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(new BillAdapter(this, listBill));
+        recyclerView.setLayoutManager(new LinearLayoutManager(BillActivity.this));
+        recyclerView.setAdapter(new BillAdapter(BillActivity.this, listBill));
 
         initRooms();
     }
@@ -69,7 +70,7 @@ public class BillActivity extends AppCompatActivity {
         super.onResume();
         List<Bill> listBill = new ArrayList<>();
         Bill b = new Bill();
-        listBill = b.getAllData(this);
+        listBill = b.getAllDataSetStatus(BillActivity.this);
         Log.e("Size", "onCreate: " +listBill.size() );
         recyclerView.setAdapter(new BillAdapter(this, listBill));
     }

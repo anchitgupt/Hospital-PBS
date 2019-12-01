@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/opensans_regular"
-        android:text="Bill Details"
+        android:text="Generate Bill"
         android:textColor="#3FADA8"
         android:textSize="40sp" />
 

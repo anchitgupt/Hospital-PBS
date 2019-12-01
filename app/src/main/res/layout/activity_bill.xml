@@ -20,6 +20,7 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
+
     <androidx.recyclerview.widget.RecyclerView
         android:layout_marginTop="80dp"
         android:id="@+id/bill_recycler"
@@ -32,6 +33,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+        app:srcCompat="@drawable/ic_add_circle_outline_black_24dp" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

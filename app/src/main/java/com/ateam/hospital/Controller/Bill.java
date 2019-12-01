@@ -3,6 +3,7 @@ package com.ateam.hospital.Controller;
 import android.content.Context;
 
 import com.ateam.hospital.Model.BillDB;
+import com.ateam.hospital.Model.RoomDB;
 import com.ateam.hospital.Model.TreatmentDB;
 
 import java.util.Date;
@@ -129,5 +130,16 @@ public class Bill {
     public List<Bill> getAllData(Context context) {
         BillDB billDB = new BillDB(context);
         return billDB.getAllData();
+    }
+    public List<Bill> getAllDataSetStatus(Context context) {
+        BillDB billDB = new BillDB(context);
+        return billDB.getAllDataSetStatus();
+    }
+
+    public Bill getDataById(Context context, int id){
+        return new BillDB(context).getData(id);
+    }
+    public void setStatus(Context context, int id, int status){
+        new BillDB(context).setStatus(id,status);
     }
 }

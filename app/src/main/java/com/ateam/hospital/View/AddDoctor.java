@@ -2,7 +2,9 @@ package com.ateam.hospital.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -58,21 +60,33 @@ public class AddDoctor extends AppCompatActivity implements View.OnClickListener
 
     @Override
     public void onClick(View view) {
-        Doctor doctor = new Doctor();
 
-        doctor.setName(etname.getText().toString().trim());
-        doctor.setAge(Integer.parseInt(etage.getText().toString()));
-        doctor.setDepartment(etdept.getText().toString().trim());
-        doctor.setSpecialization(etspecs.getText().toString().trim());
-        doctor.setCharges(Integer.parseInt(etcharges.getText().toString().trim()));
-        doctor.setGender(radio);
+        if(TextUtils.isEmpty(etname.getText().toString().trim()) ||
+                TextUtils.isEmpty(etage.getText().toString())
+                ||TextUtils.isEmpty(etage.getText().toString().trim())
+                ||TextUtils.isEmpty(etdept.getText().toString().trim())
+                || TextUtils.isEmpty(etcharges.getText().toString().trim())){
+            Toast.makeText(this, "Fill All Values", Toast.LENGTH_SHORT).show();
 
-        Log.e("Class", "onClick: Before");
-        long l = doctor.addData(this, doctor);
-        if (l>0){
-            Toast.makeText(this, "Your ID is:  " + String.valueOf(l), Toast.LENGTH_LONG).show();
         } else {
-            Log.e("Insert", "onClick: "+ l);
+
+            Doctor doctor = new Doctor();
+            doctor.setName(etname.getText().toString().trim());
+            doctor.setAge(Integer.parseInt(etage.getText().toString()));
+            doctor.setDepartment(etdept.getText().toString().trim());
+            doctor.setSpecialization(etspecs.getText().toString().trim());
+            doctor.setCharges(Integer.parseInt(etcharges.getText().toString().trim()));
+            doctor.setGender(radio);
+
+            Log.e("Class", "onClick: Before");
+            long l = doctor.addData(this, doctor);
+            if (l > 0) {
+                Toast.makeText(this, "Your ID is:  " + String.valueOf(l), Toast.LENGTH_LONG).show();
+                finish();
+                startActivity(new Intent(this, BillActivity.class));
+            } else {
+                Log.e("Insert", "onClick: " + l);
+            }
         }
 
 

@@ -164,5 +164,52 @@ public class BillDB extends SQLiteOpenHelper {
         return acc;
     }
 
+    public void setStatus(int id, int status){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("UPDATE "+ TABLE_DATA+ " set status="+ status+" where bill_id="+id);
+    }
 
+
+    public List<Bill> getAllDataSetStatus() {
+
+        List<Bill> AccList = new ArrayList<Bill>();
+        // Select All Query
+        String selectQuery = "SELECT  * FROM " + TABLE_DATA;
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                Bill acc = new Bill();
+                acc.setBill_id(Integer.parseInt(cursor.getString(0)));
+
+                int pid = cursor.getInt(1);
+                PatientDB patientDB = new PatientDB(context);
+                PatientDetail patient = patientDB.getData(pid);
+
+                int presid = cursor.getInt(2);
+                PrescriptionDB prescriptionDB = new PrescriptionDB(context);
+                Prescription p = prescriptionDB.getData(presid);
+
+                int roomid = cursor.getInt(3);
+                RoomDB roomDB = new RoomDB(context);
+                Room r = roomDB.getData(roomid);
+
+                acc.setPatientDetail(patient);
+                acc.setPrescription(p);
+                acc.setRoom(r);
+
+                acc.setStatus(cursor.getInt(4));
+                acc.setArrdate(cursor.getString(5));
+                acc.setDepdate(cursor.getString(6));
+
+                // Adding contact to list
+                if(cursor.getInt(4) == 1)
+                AccList.add(acc);
+            } while (cursor.moveToNext());
+        }
+        return AccList;
+    }
 }

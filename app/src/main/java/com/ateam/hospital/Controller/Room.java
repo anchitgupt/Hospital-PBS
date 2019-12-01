@@ -15,10 +15,10 @@ import java.util.List;
  */
 public class Room {
 
-    int room_id;
-    String bedno;
-    String ward;
-    boolean status;
+    private int room_id;
+    private String bedno;
+    private String ward;
+    private boolean status;
 
     public Room(int room_id, String bedno, String ward, boolean status) {
         this.room_id = room_id;

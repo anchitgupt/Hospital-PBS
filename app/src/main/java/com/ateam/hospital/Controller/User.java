@@ -19,7 +19,7 @@ public class User {
     private String username;
     private String password;
 
-    FirebaseAuth firebaseAuth;
+    private FirebaseAuth firebaseAuth;
     FirebaseUser user;
 
     public User() {
