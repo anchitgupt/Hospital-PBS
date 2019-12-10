@@ -17,7 +17,7 @@ This project is aimed at developing a patient billing software system that is of
 1. Class Diagram
 2. Project Description
 
-# Project Platform: Android 
+### Project Platform: Android 
 
 ## Steps to run:
 
